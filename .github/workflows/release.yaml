@@ -6,14 +6,9 @@
 name: Publish snap
 
 on:
-  workflow_call:
-  workflow_dispatch:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches: [main, test-notification]
-    paths-ignore:
-      - "**.md"
-      - "**.rst"
+  push:
+    branches:
+      - test-notification
 
 jobs:
   check:
@@ -26,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [[ubuntu-22.04], [self-hosted, jammy, ARM64]]
+        runs-on: [[ubuntu-22.04]]
     steps:
       - uses: actions/checkout@v4
         with:

@@ -42,7 +42,7 @@ jobs:
           python -m pip install 'tox<5'
 
       - name: Run linters
-        run: tox -e lint
+        run: tox -e asdf
 
       - name: Lint yaml files
         run: |
@@ -91,7 +91,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [[ubuntu-22.04], [self-hosted, jammy, ARM64]]
+        runs-on: [[ubuntu-22.04]]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -117,7 +117,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [[ubuntu-22.04], [self-hosted, jammy, ARM64]]
+        runs-on: [[ubuntu-22.04]]
     steps:
       - uses: actions/checkout@v4
         with:
